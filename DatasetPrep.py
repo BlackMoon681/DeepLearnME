@@ -5,7 +5,6 @@ import kagglehub
 # Project root directory
 project_root = "C:\\Users\\mcf\\PycharmProjects\\DeepLearnME"
 
-
 # Download and extract dataset
 def download_dataset():
     data_dir = os.path.join(project_root, "data")
@@ -17,11 +16,11 @@ def download_dataset():
 
     # Download dataset using kagglehub
     try:
-        dataset_path = kagglehub.dataset_download("jockeroika/human-bone-fractures-image-dataset")
-        print("Dataset downloaded to:", dataset_path)
+        dataset_path = kagglehub.dataset_download("kmader/skin-cancer-mnist-ham10000")
+        print("Path to dataset files:", dataset_path)
 
         # Move dataset contents to data/ if nested
-        if os.path.basename(dataset_path) == "human-bone-fractures-image-dataset":
+        if os.path.basename(dataset_path) == "skin-cancer-mnist-ham10000":
             for item in os.listdir(dataset_path):
                 src_path = os.path.join(dataset_path, item)
                 dest_path = os.path.join(data_dir, item)
@@ -40,7 +39,6 @@ def download_dataset():
         print(f"Error downloading dataset: {e}")
         print("Please ensure kagglehub is installed (pip install kagglehub) and you have an internet connection.")
         print("You may need a Kaggle API token configured if authentication is required.")
-
 
 if __name__ == "__main__":
     # Download and add dataset
